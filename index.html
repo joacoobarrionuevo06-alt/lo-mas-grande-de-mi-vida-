@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxia para mi Amor 💫</title>
+
+  <!-- FUENTE MÁS SUAVE Y ROMÁNTICA -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- THREE.JS -->
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+</head>
+<body>
+
+  <!-- MÚSICA -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="audio/interstellar.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- OVERLAY PARA ACTIVAR MÚSICA -->
+  <div id="play-overlay">
+    <button id="play-btn" class="galaxy-btn">❤️ Feliz Aniversario mi Universo ❤️</button>
+
+  </div>
+  
+
+  <!-- OVERLAY PARA FOTOS -->
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="foto" />
+    <button onclick="cerrarFoto()">Cerrar ✨</button>
+  </div>
+
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

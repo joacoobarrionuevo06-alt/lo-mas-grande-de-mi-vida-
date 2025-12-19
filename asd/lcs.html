@@ -1,0 +1,204 @@
+ "fotos/foto1.png", "fotos/foto2.png", "fotos/foto3.png",
+    "fotos/foto4.png", "fotos/foto5.png", "fotos/foto6.png",
+    "fotos/foto7.png", "fotos/foto8.png", "fotos/foto9.png",
+    "fotos/foto (10).jpeg", "fotos/foto (11).jpeg", "fotos/foto (12).jpeg",
+    "fotos/foto (13).jpeg", "fotos/foto (14).jpeg", "fotos/foto (15).jpeg",
+    "fotos/foto (16).jpeg", "fotos/foto (17).jpeg", "fotos/foto (18).jpeg",
+    "fotos/foto (19).jpeg", "fotos/foto (20).jpeg", "fotos/foto (21).jpeg",
+    "fotos/foto (22).jpeg", "fotos/foto (23).jpeg", "fotos/foto (24).jpeg",
+    "fotos/foto (25).jpeg", "fotos/foto (26).jpeg", "fotos/foto (27).jpeg",
+    "fotos/foto (28).jpeg", "fotos/foto (29).jpeg", "fotos/foto (30).jpeg",
+    "fotos/foto (31).jpeg", "fotos/foto (32).jpeg", "fotos/foto (33).jpeg",
+    "fotos/foto (34).jpeg", "fotos/foto (35).jpeg", "fotos/foto (36).jpeg",
+    "fotos/foto (37).jpeg", "fotos/foto (38).jpeg", "fotos/foto (39).jpeg",
+    "fotos/foto (40).jpeg", "fotos/foto (41).jpeg", "fotos/foto (42).jpeg",
+    "fotos/foto (43).jpeg", "fotos/foto (44).jpeg", "fotos/foto (45).jpeg",
+    "fotos/foto (46).jpeg", "fotos/foto (47).jpeg", "fotos/foto (48).jpeg",
+    "fotos/foto (49).jpeg", "fotos/foto (50).jpeg", "fotos/foto (51).jpeg",
+    "fotos/foto (52).jpeg", "fotos/foto (53).jpeg", "fotos/foto (54).jpeg",
+    "fotos/foto (55).jpeg", "fotos/foto (56).jpeg", "fotos/foto (57).jpeg",
+    "fotos/foto (58).jpeg", "fotos/foto (59).jpeg", "fotos/foto (60).jpeg",
+    "fotos/foto (61).jpeg", "fotos/foto (62).jpeg", "fotos/foto (63).jpeg",
+    "fotos/foto (64).jpeg", "fotos/foto (65).jpeg", "fotos/foto (66).jpeg",
+    "fotos/foto (67).jpeg", "fotos/foto (68).jpeg", "fotos/foto (69).jpeg",
+    "fotos/foto (70).jpeg", "fotos/foto (71).jpeg", "fotos/foto (72).jpeg",
+    "fotos/foto (73).jpeg"
+
+
+    let scene, camera, renderer, fotos = [];
+
+init();
+animate();
+
+function init() {
+  // Escena
+  scene = new THREE.Scene();
+
+  // Cámara
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 15;
+
+  // Renderer con transparencia
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // ------------------------------
+  // Estrellas
+  // ------------------------------
+  const starGeometry = new THREE.BufferGeometry();
+  const starVertices = [];
+  for (let i = 0; i < 10000; i++) {
+    starVertices.push(
+      (Math.random() - 0.5) * 2000,
+      (Math.random() - 0.5) * 2000,
+      (Math.random() - 0.5) * 2000
+    );
+  }
+  starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+  const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.5, sizeAttenuation: true });
+  const stars = new THREE.Points(starGeometry, starMaterial);
+  scene.add(stars);
+
+  // ------------------------------
+  // Fotos flotando
+  // ------------------------------
+  const imagenes = [
+    "fotos/foto1.png", "fotos/foto2.png", "fotos/foto3.png",
+    "fotos/foto4.png", "fotos/foto5.png", "fotos/foto6.png",
+    "fotos/foto7.png", "fotos/foto8.png", "fotos/foto9.png",
+    "fotos/foto (10).jpeg", "fotos/foto (11).jpeg", "fotos/foto (12).jpeg",
+    "fotos/foto (13).jpeg", "fotos/foto (14).jpeg", "fotos/foto (15).jpeg",
+    "fotos/foto (16).jpeg", "fotos/foto (17).jpeg", "fotos/foto (18).jpeg",
+    "fotos/foto (19).jpeg", "fotos/foto (20).jpeg", "fotos/foto (21).jpeg",
+    "fotos/foto (22).jpeg", "fotos/foto (23).jpeg", "fotos/foto (24).jpeg",
+    "fotos/foto (25).jpeg", "fotos/foto (26).jpeg", "fotos/foto (27).jpeg",
+    "fotos/foto (28).jpeg", "fotos/foto (29).jpeg", "fotos/foto (30).jpeg",
+    "fotos/foto (31).jpeg", "fotos/foto (32).jpeg", "fotos/foto (33).jpeg",
+    "fotos/foto (34).jpeg", "fotos/foto (35).jpeg", "fotos/foto (36).jpeg",
+    "fotos/foto (37).jpeg", "fotos/foto (38).jpeg", "fotos/foto (39).jpeg",
+    "fotos/foto (40).jpeg", "fotos/foto (41).jpeg", "fotos/foto (42).jpeg",
+    "fotos/foto (43).jpeg", "fotos/foto (44).jpeg", "fotos/foto (45).jpeg",
+    "fotos/foto (46).jpeg", "fotos/foto (47).jpeg", "fotos/foto (48).jpeg",
+    "fotos/foto (49).jpeg", "fotos/foto (50).jpeg", "fotos/foto (51).jpeg",
+    "fotos/foto (52).jpeg", "fotos/foto (53).jpeg", "fotos/foto (54).jpeg",
+    "fotos/foto (55).jpeg", "fotos/foto (56).jpeg", "fotos/foto (57).jpeg",
+    "fotos/foto (58).jpeg", "fotos/foto (59).jpeg", "fotos/foto (60).jpeg",
+    "fotos/foto (61).jpeg", "fotos/foto (62).jpeg", "fotos/foto (63).jpeg",
+    "fotos/foto (64).jpeg", "fotos/foto (65).jpeg", "fotos/foto (66).jpeg",
+    "fotos/foto (67).jpeg", "fotos/foto (68).jpeg", "fotos/foto (69).jpeg",
+    "fotos/foto (70).jpeg", "fotos/foto (71).jpeg", "fotos/foto (72).jpeg",
+    "fotos/foto (73).jpeg"
+  ];
+
+  imagenes.forEach(src => {
+    crearTexturaCircular(src, textura => {
+      const material = new THREE.SpriteMaterial({ map: textura, transparent: true });
+      const sprite = new THREE.Sprite(material);
+
+      // Posición en esfera aleatoria
+      const radius = 8 + Math.random() * 5;
+      const theta = Math.random() * 2 * Math.PI;
+      const phi = Math.random() * Math.PI;
+
+      sprite.position.set(
+        radius * Math.sin(phi) * Math.cos(theta),
+        radius * Math.sin(phi) * Math.sin(theta),
+        radius * Math.cos(phi)
+      );
+
+      // Tamaño aleatorio para efecto más realista
+      const size = 0.3 + Math.random() * 0.6;
+      sprite.scale.set(size, size, 1);
+
+      scene.add(sprite);
+      fotos.push({ sprite, src });
+    });
+  });
+
+  // ------------------------------
+  // Eventos
+  // ------------------------------
+  document.addEventListener('click', detectarClick);
+  window.addEventListener('resize', onWindowResize);
+
+// Zoom con scroll
+window.addEventListener('wheel', (event) => {
+  const zoomSpeed = 0.05;
+  camera.position.z += event.deltaY * zoomSpeed * 0.1;
+  if (camera.position.z < 2) camera.position.z = 2;
+  if (camera.position.z > 50) camera.position.z = 50;
+});
+}
+
+// Función para crear textura circular
+function crearTexturaCircular(src, callback) {
+  const img = new Image();
+  img.src = src;
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    const size = 256;
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+
+    ctx.drawImage(img, 0, 0, size, size);
+
+    const textura = new THREE.Texture(canvas);
+    textura.needsUpdate = true;
+    callback(textura);
+  };
+}
+
+// Detectar click sobre fotos
+function detectarClick(event) {
+  const mouse = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    -(event.clientY / window.innerHeight) * 2 + 1
+  );
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera(mouse, camera);
+  const intersecciones = raycaster.intersectObjects(fotos.map(f => f.sprite));
+  if (intersecciones.length > 0) {
+    const objeto = intersecciones[0].object;
+    const foto = fotos.find(f => f.sprite === objeto);
+    mostrarFoto(foto.src);
+  }
+}
+
+// Mostrar overlay de foto
+function mostrarFoto(src) {
+  const overlay = document.getElementById("overlay");
+  const img = document.getElementById("overlay-img");
+  img.src = src;
+  overlay.style.display = "flex";
+}
+
+// Cerrar overlay
+function cerrarFoto() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+// Animación
+function animate() {
+  requestAnimationFrame(animate);
+  scene.rotation.y += 0.0008; // rotación lenta
+  renderer.render(scene, camera);
+
+  fotos.forEach((f, i) => {
+    f.sprite.position.y += Math.sin(Date.now() * 0.001 + i) * 0.001;
+    f.sprite.rotation.z += 0.001; // giro sutil
+  });
+}
+
+// Ajuste al redimensionar ventana
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
